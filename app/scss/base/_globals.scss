@@ -1,0 +1,79 @@
+// The Globals sheet is a great place for boilerplates
+
+/* We begin by setting the HTML sections global font size to 100%. 
+  This creates a more accesible website as users have more control over the fonts zoom level.
+  Box sizing: border box includes the padding in the final width of elements granting more control over these elements.
+*/
+
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+/* We then use the wildcard selector to style all elements, before and after, to have a box sizing inherited from the above html style */
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Next up, we style the body tag to contain some global resets for our elements within to revert back to should they need to.
+   We set the margins of elements to 0, the padding of elements to 0, and set a default line height for spacing between lines.
+*/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Public Sans', sans-serif;
+  line-height: 1.3;
+  font-size: $font-med;
+  font-weight: 300;
+  color: $grayishBlue;
+}
+
+a, a:visited, a:hover {
+  text-decoration: none;
+ 
+}
+
+// Flexbox Styles
+.flex {
+  display: flex;
+
+  &-jc-sb {
+    justify-content: space-between;
+  }
+  
+  &-jc-c {
+    justify-content: center;
+  }
+
+  &-ai-c {
+    align-items: center;
+  }
+}
+
+// Buttons
+button, .button {
+  background: linear-gradient(to right, $limeGreen, $brightCyan);
+  padding: 0.875rem 1.875rem;
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+  color: $white;
+  font-weight: 700;
+}
+
+// Visibility
+.hide-for-mobile {
+  // Hide for mobile/tablet viewport widths
+  @include breakpoints-below(medium){
+    display: none;
+  }
+}
+.hide-for-desktop {
+  // Hide for desktop viewport widths
+  @include breakpoints-above(large){
+    display: none;
+  }
+}
